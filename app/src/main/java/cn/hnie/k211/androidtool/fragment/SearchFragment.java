@@ -7,5 +7,6 @@ import android.support.v4.app.Fragment;
  * 全局搜索
  */
 
-public class SerarchFragment extends Fragment {
+public class SearchFragment extends Fragment {
+
 }

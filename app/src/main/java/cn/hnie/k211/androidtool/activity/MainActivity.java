@@ -15,7 +15,7 @@ import cn.hnie.k211.androidtool.R;
 import cn.hnie.k211.androidtool.fragment.AboutFragment;
 import cn.hnie.k211.androidtool.fragment.AccountbookFragment;
 import cn.hnie.k211.androidtool.fragment.RetrieveSMSFragment;
-import cn.hnie.k211.androidtool.fragment.SerarchFragment;
+import cn.hnie.k211.androidtool.fragment.SearchFragment;
 import cn.hnie.k211.androidtool.fragment.SoftwareHideFragment;
 
 
@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
         mTabNameAry[4] = getString(R.string.bottom_tab_name_5);
 
         mClzList = new ArrayList<>();
-        mClzList.add(SerarchFragment.class);              //全局搜索
+        mClzList.add(SearchFragment.class);              //全局搜索
         mClzList.add(SoftwareHideFragment.class);         //程序隐藏
         mClzList.add(AccountbookFragment.class);          //记账功能
         mClzList.add(RetrieveSMSFragment.class);          //短信找回
