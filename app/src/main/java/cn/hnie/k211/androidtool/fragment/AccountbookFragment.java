@@ -7,5 +7,5 @@ import android.support.v4.app.Fragment;
  * 账本
  */
 
-public class AccountbookFragment extends Fragment {
+public class AccountBookFragment extends Fragment {
 }
