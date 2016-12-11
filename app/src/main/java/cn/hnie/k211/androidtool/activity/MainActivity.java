@@ -25,7 +25,7 @@ import cn.hnie.k211.androidtool.fragment.SoftwareHideFragment;
  */
 public class MainActivity extends FragmentActivity {
     private FragmentTabHost mTabHost;
-    private String[] mTabName;
+    private String[] mTabNameAry;
     private List<Class> mClzList;
     private int[] mTabIconIDAry;
 
@@ -38,19 +38,19 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void initTabAndFragmentClz() {
-        mTabName = new String[5];
-        mTabName[0] = getString(R.string.bottom_tab_name_1);
-        mTabName[1] = getString(R.string.bottom_tab_name_2);
-        mTabName[2] = getString(R.string.bottom_tab_name_3);
-        mTabName[3] = getString(R.string.bottom_tab_name_4);
-        mTabName[4] = getString(R.string.bottom_tab_name_5);
+        mTabNameAry = new String[5];
+        mTabNameAry[0] = getString(R.string.bottom_tab_name_1);
+        mTabNameAry[1] = getString(R.string.bottom_tab_name_2);
+        mTabNameAry[2] = getString(R.string.bottom_tab_name_3);
+        mTabNameAry[3] = getString(R.string.bottom_tab_name_4);
+        mTabNameAry[4] = getString(R.string.bottom_tab_name_5);
 
         mClzList = new ArrayList<>();
-        mClzList.add(SerarchFragment.class);
-        mClzList.add(SoftwareHideFragment.class);
-        mClzList.add(AccountbookFragment.class);
-        mClzList.add(RetrieveSMSFragment.class);
-        mClzList.add(AboutFragment.class);
+        mClzList.add(SerarchFragment.class);              //全局搜索
+        mClzList.add(SoftwareHideFragment.class);         //程序隐藏
+        mClzList.add(AccountbookFragment.class);          //记账功能
+        mClzList.add(RetrieveSMSFragment.class);          //短信找回
+        mClzList.add(AboutFragment.class);                //关于我们
 
         mTabIconIDAry = new int[5];
         mTabIconIDAry[0] = R.mipmap.ic_launcher;
@@ -63,18 +63,23 @@ public class MainActivity extends FragmentActivity {
     private void initViews() {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.id_fl_activityMain_fragmentContainer);
-        for (int i = 0; i < mTabName.length; i++) {
-            TabHost.TabSpec spec = mTabHost.newTabSpec(mTabName[i]).setIndicator(getTabContent(i));
+        for (int i = 0; i < mTabNameAry.length; i++) {
+            TabHost.TabSpec spec = mTabHost.newTabSpec(mTabNameAry[i]).setIndicator(getTabContent(i));
             mTabHost.addTab(spec,mClzList.get(i),null);
         }
     }
 
+    /**
+     * 获取底部Tab的布局
+     * @param index
+     * @return  view 底部Tab布局
+     */
     private View getTabContent(int index) {
         View view = View.inflate(this, R.layout.tab_content, null);
         ImageView tabIcon = (ImageView) view.findViewById(R.id.id_iv_tab_tabIcon);
         TextView tabName = (TextView) view.findViewById(R.id.id_iv_tab_tabName);
         tabIcon.setImageResource(mTabIconIDAry[index]);
-        tabName.setText(mTabName[index]);
+        tabName.setText(mTabNameAry[index]);
         return view;
     }
 
