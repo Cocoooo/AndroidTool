@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidTool</string>
+    <!-- tab name-->
+    <string name="bottom_tab_name_1">全局搜索</string>
+    <string name="bottom_tab_name_2">账本</string>
+    <string name="bottom_tab_name_3">程序隐藏</string>
+    <string name="bottom_tab_name_4">短信找回</string>
+    <string name="bottom_tab_name_5">关于我们</string>
+</resources>
